@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indigo-brand: #3151B9;
+  --color-trust-brand: #004080;
+  --color-navy-brand: #0B2545;
+  --color-ember-brand: #1B3A63;
+  --color-cyan-brand: #00CFFF;
+  --color-ice-brand: #EAF4FF;
+  --color-cloud-brand: #F4F6F9;
+  --color-charcoal-brand: #222E3C;
+
+  --font-sans: "Inter", Arial, sans-serif;
+  --font-display: "Plus Jakarta Sans", Arial, sans-serif;
+  --font-data: "DM Mono", "Courier New", monospace;
+
+  --shadow-card: 0 10px 34px rgba(11, 37, 69, 0.10);
+  --shadow-lift: 0 22px 48px rgba(11, 37, 69, 0.18);
+}
+
+:root {
+  --indigo: #3151B9;
+  --trust: #004080;
+  --navy: #0B2545;
+  --ember: #1B3A63;
+  --cyan: #00CFFF;
+  --ice: #EAF4FF;
+  --cloud: #F4F6F9;
+  --white: #FFFFFF;
+  --charcoal: #222E3C;
+
+  --grad-cta: linear-gradient(135deg, #0B2545 0%, #004080 100%);
+  --grad-hero: radial-gradient(130% 120% at 20% 0%, #12315E 0%, #0B2545 46%, #071A33 100%);
+  --grad-ice: linear-gradient(180deg, #FFFFFF 0%, #EAF4FF 100%);
+
+  --font-display: 'Plus Jakarta Sans', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+  --font-data: 'DM Mono', 'Courier New', monospace;
+
+  --r-card: 20px;
+  --r-pill: 999px;
+  --shadow-card: 0 10px 34px rgba(11, 37, 69, 0.10);
+  --shadow-lift: 0 22px 48px rgba(11, 37, 69, 0.18);
+  --ease: cubic-bezier(.22, .8, .24, 1);
+  --nav-h: 74px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom visual utilities matching brand design */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left .55s cubic-bezier(.22, .8, .24, 1);
+  pointer-events: none;
+}
+
+.btn-sheen:hover::after {
+  left: 130%;
+}
+
+.hero-grid-pattern {
+  background-image: linear-gradient(rgba(0, 207, 255, 0.055) 1px, transparent 1px),
+                    linear-gradient(92deg, rgba(0, 207, 255, 0.055) 1px, transparent 1px);
+  background-size: 88px 88px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cloud);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(11, 37, 69, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(11, 37, 69, 0.4);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.95); }
+}
+
+.dot-live-glow {
+  animation: pulse-glow 2s cubic-bezier(.22, .8, .24, 1) infinite;
+}
+

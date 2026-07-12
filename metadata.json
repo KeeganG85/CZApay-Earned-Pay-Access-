@@ -1,0 +1,8 @@
+{
+  "name": "CZApay",
+  "description": "Earned Wage Access (EWA) platform for South Africa. Gives employees responsible, interest-free access to already earned salary, helping reduce financial stress.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
