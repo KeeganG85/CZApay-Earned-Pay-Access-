@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { 
   ShieldCheck, Check, Sparkles, PhoneCall, ArrowDown, HelpCircle, 
   MessageSquare, User, Briefcase, Landmark, ShieldAlert, Award, Zap, HeartHandshake,
-  Menu, X, ChevronDown, ChevronUp
+  Menu, X, ChevronDown, ChevronUp, Bell, ChevronRight, Clock, TrendingUp
 } from "lucide-react";
 
 interface LandingPageProps {
@@ -60,7 +60,7 @@ export default function LandingPage({ onNavigateToPortal }: LandingPageProps) {
       {/* Navigation */}
       <header className="fixed top-0 left-0 right-0 h-[74px] bg-white/95 backdrop-blur-md border-b border-[#3151B9]/10 z-50 flex items-center">
         <div className="container flex items-center justify-between">
-          <CZApayLogo className="h-9" />
+          <CZApayLogo className="h-[54px]" />
           
           <nav className="hidden md:flex items-center gap-7">
             <button 
@@ -280,50 +280,126 @@ export default function LandingPage({ onNavigateToPortal }: LandingPageProps) {
                 initial={{ opacity: 0, scale: 0.95, y: 30 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
-                className="relative w-full max-w-[325px] bg-white border border-slate-200 rounded-[38px] p-4.5 shadow-2xl z-10"
+                className="relative w-full max-w-[325px] bg-[#F7F9FC] border-8 border-black rounded-[40px] shadow-2xl z-10 overflow-hidden pb-16"
               >
-                <div className="w-28 h-5.5 bg-[#071A33] rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#00CFFF]/45 animate-pulse" />
-                </div>
+                {/* Notch */}
+                <div className="absolute top-0 inset-x-0 h-6 bg-black rounded-b-3xl mx-auto w-32 z-20"></div>
                 
                 {/* Simulated App Header */}
-                <div className="text-center pb-2">
-                  <span className="text-[10px] font-data tracking-wider text-black uppercase">Accrued Earned Balance</span>
-                  <div className="text-3xl font-data font-bold text-black mt-1">R6,600.00</div>
-                  <div className="text-[10px] text-black mt-1 font-semibold">Net salary accrued from worked shifts</div>
+                <div className="pt-8 px-5 pb-4 flex justify-between items-center bg-[#F7F9FC]">
+                  <div className="h-6">
+                     <img src="/czapay-logo.jpg" alt="CZApay" className="h-full w-auto object-contain mix-blend-multiply" />
+                  </div>
+                  <Bell className="w-5 h-5 text-slate-600" />
+                </div>
+                
+                <div className="px-4 space-y-4 pb-6 relative z-10">
+                   {/* Welcome Card */}
+                   <div className="bg-gradient-to-r from-[#7B51D1] to-[#9B6DF2] rounded-2xl p-4 text-white shadow-md relative overflow-hidden">
+                     {/* Decorative background elements */}
+                     <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+                     <div className="flex items-center gap-3 mb-4 relative z-10">
+                        <img src="/profile-pic.png" className="w-12 h-12 rounded-full border-2 border-white/20 object-cover" alt="Profile" />
+                        <div>
+                          <div className="font-bold text-lg leading-tight">Welcome back, Thabo!</div>
+                          <div className="text-white/80 text-xs">TechCorp SA</div>
+                        </div>
+                     </div>
+                     <div className="text-xs text-white/90 mb-1.5 relative z-10">Work Progress</div>
+                     <div className="flex items-center gap-2 relative z-10">
+                       <span className="text-sm font-bold">15/22 days</span>
+                       <div className="flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden">
+                         <div className="h-full bg-white rounded-full w-[68%]"></div>
+                       </div>
+                     </div>
+                   </div>
+
+                   {/* Balances */}
+                   <div className="grid grid-cols-2 gap-3">
+                     <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-100 flex flex-col justify-between h-[90px]">
+                       <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                         <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
+                         Earned Balance
+                       </div>
+                       <div className="font-bold text-base">R17,045.45</div>
+                     </div>
+                     <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-100 flex flex-col justify-between h-[90px]">
+                       <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                         <div className="w-2 h-2 rounded-full bg-[#5A87FA]"></div>
+                         Available
+                       </div>
+                       <div className="font-bold text-base">R15,340.91</div>
+                     </div>
+                   </div>
+
+                   <div className="font-bold text-sm text-slate-800 pt-1">Quick Actions</div>
+
+                   {/* Withdraw Btn */}
+                   <button className="w-full bg-gradient-to-r from-[#5E62F2] to-[#A052F1] rounded-xl p-3.5 flex items-center justify-between text-white shadow-md hover:scale-[1.01] transition-transform">
+                     <div className="flex items-center gap-3">
+                       <div className="p-1.5 bg-white/20 rounded-lg">
+                         <ArrowDown className="w-4 h-4" />
+                       </div>
+                       <div className="text-left">
+                         <div className="font-bold text-sm">Withdraw Earnings</div>
+                         <div className="text-[10px] text-white/80">Access your earned wages</div>
+                       </div>
+                     </div>
+                     <ChevronRight className="w-4 h-4 text-white/70" />
+                   </button>
+
+                   {/* Tx History */}
+                   <div className="bg-white rounded-xl p-3.5 flex items-center justify-between shadow-sm border border-slate-100">
+                     <div className="flex items-center gap-3">
+                       <div className="p-1.5 bg-slate-100 text-slate-600 rounded-lg">
+                         <Clock className="w-4 h-4" />
+                       </div>
+                       <div className="text-left">
+                         <div className="font-bold text-sm text-slate-800">Transaction History</div>
+                         <div className="text-[10px] text-slate-500">View all your transactions</div>
+                       </div>
+                     </div>
+                     <ChevronRight className="w-4 h-4 text-slate-400" />
+                   </div>
+
+                   <div className="font-bold text-sm text-slate-800 pt-1">Recent Activity</div>
+
+                   <div className="bg-white rounded-xl p-3 flex items-center justify-between shadow-sm border border-slate-100 mb-2">
+                     <div className="flex items-center gap-3">
+                       <div className="p-1.5 bg-emerald-100 text-emerald-600 rounded-full">
+                         <ArrowDown className="w-4 h-4" />
+                       </div>
+                       <div className="text-left">
+                         <div className="font-bold text-sm text-slate-800">Withdrawal</div>
+                         <div className="text-[10px] text-slate-500">2024-06-10</div>
+                       </div>
+                     </div>
+                     <div className="text-right">
+                       <div className="font-bold text-sm text-slate-800">-R8500.00</div>
+                       <div className="text-[10px] text-slate-500">Fee: R25.00</div>
+                     </div>
+                   </div>
                 </div>
 
-                {/* Simulated circle indicator */}
-                <div className="my-6 relative flex justify-center">
-                  <svg className="w-44 h-44" viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(0,0,0,0.06)" strokeWidth="6" />
-                    <circle cx="60" cy="60" r="50" fill="none" stroke="#3151B9" strokeWidth="6" strokeDasharray="314" strokeDashoffset="157" strokeLinecap="round" />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col justify-center items-center">
-                    <span className="text-2xl font-bold font-data text-black">50%</span>
-                    <span className="text-[9px] uppercase font-data text-black tracking-wider font-semibold">Access Limit</span>
-                  </div>
+                {/* Bottom Bar */}
+                <div className="absolute bottom-0 inset-x-0 bg-white border-t border-slate-100 pt-3 pb-6 px-6 flex justify-between rounded-b-[32px] z-20">
+                   <div className="flex flex-col items-center gap-1 text-[#5E62F2]">
+                     <Landmark className="w-5 h-5" />
+                     <span className="text-[9px] font-semibold">Home</span>
+                   </div>
+                   <div className="flex flex-col items-center gap-1 text-slate-400">
+                     <Clock className="w-5 h-5" />
+                     <span className="text-[9px] font-semibold">History</span>
+                   </div>
+                   <div className="flex flex-col items-center gap-1 text-slate-400">
+                     <TrendingUp className="w-5 h-5" />
+                     <span className="text-[9px] font-semibold">Reports</span>
+                   </div>
+                   <div className="flex flex-col items-center gap-1 text-slate-400">
+                     <User className="w-5 h-5" />
+                     <span className="text-[9px] font-semibold">Profile</span>
+                   </div>
                 </div>
-
-                {/* Simulated Bank specs */}
-                <div className="bg-slate-50 border border-slate-100 rounded-xl p-3.5 space-y-3.5 mb-4">
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-black">Payout Target:</span>
-                    <span className="font-bold text-black">Nedbank ending 4812</span>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span className="text-black">EFT Clearing Speed:</span>
-                    <span className="font-bold text-black">Instant Real-Time</span>
-                  </div>
-                </div>
-
-                {/* Simulated Instant cash-out btn */}
-                <button
-                  onClick={() => handleScrollToId("ewa-playground")}
-                  className="w-full py-3 rounded-xl bg-[#00CFFF] hover:bg-[#00b5e0] text-black font-display font-extrabold text-sm transition-all shadow-md hover:scale-[1.01]"
-                >
-                  Access Payout Now
-                </button>
               </motion.div>
 
               {/* Mini float card (Left) */}
@@ -658,20 +734,20 @@ export default function LandingPage({ onNavigateToPortal }: LandingPageProps) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0B2545] text-white/70 py-12 text-sm border-t border-white/5">
+      <footer className="bg-slate-50 text-slate-600 py-12 text-sm border-t border-slate-200">
         <div className="container space-y-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <CZApayLogo lightText={true} className="h-9" />
-            <div className="flex flex-wrap gap-6 text-xs text-white/55 font-semibold">
-              <button onClick={() => handleScrollToId("features")} className="hover:text-white transition-colors">How It Works</button>
-              <button onClick={() => handleScrollToId("pain-point")} className="hover:text-white transition-colors">Why EWA?</button>
-              <button onClick={() => handleScrollToId("ewa-playground")} className="hover:text-white transition-colors">Simulator</button>
-              <button onClick={() => handleScrollToId("ai-wellness-section")} className="hover:text-white transition-colors">Wellness Coach</button>
-              <button onClick={() => handleScrollToId("faq-section")} className="hover:text-white transition-colors">FAQs</button>
+            <CZApayLogo className="h-[54px]" />
+            <div className="flex flex-wrap gap-6 text-xs text-slate-500 font-semibold">
+              <button onClick={() => handleScrollToId("features")} className="hover:text-slate-800 transition-colors">How It Works</button>
+              <button onClick={() => handleScrollToId("pain-point")} className="hover:text-slate-800 transition-colors">Why EWA?</button>
+              <button onClick={() => handleScrollToId("ewa-playground")} className="hover:text-slate-800 transition-colors">Simulator</button>
+              <button onClick={() => handleScrollToId("ai-wellness-section")} className="hover:text-slate-800 transition-colors">Wellness Coach</button>
+              <button onClick={() => handleScrollToId("faq-section")} className="hover:text-slate-800 transition-colors">FAQs</button>
             </div>
           </div>
           
-          <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/45">
+          <div className="border-t border-slate-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
             <p>
               © 2026 CZApay (Pty) Ltd. All rights reserved. Registered South African financial wellness service.
             </p>
